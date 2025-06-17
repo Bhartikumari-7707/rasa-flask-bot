@@ -1,0 +1,151 @@
+version: "3.1"
+
+intents:
+  - greet
+  - provide_location
+  - provide_name
+  - confirm_issue
+  - deny
+  - describe_issue
+  - want_complaint_form
+  - goodbye
+  - thank_you
+  - out_of_scope
+  - romantic_talk
+  - sorry
+  - health_problem
+  - positive_feedback
+  - negative_feedback
+  - roommate_issue
+  - harassment
+  - complain_ceo
+  - complain_registrar
+  - complain_director
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+
+actions:
+  - action_extract_location
+  - action_extract_name
+  - action_acknowledge_issue
+  - action_send_form_link
+  - action_health_problem
+  - action_provide_health_tips
+
+
+entities:
+  - hostel
+  - room
+  - user_name
+  - issue_type
+  - health_issue
+
+
+
+slots:
+  hostel:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hostel
+  room:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room
+  user_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: user_name
+  issue_type:
+    type: text
+    mappings:
+      - type: custom
+  health_issue:
+    type: text
+    mappings:
+      - type: custom
+
+
+
+
+responses:
+
+  utter_cheer_up:
+  - text: "Don't worry!Every day may not be good, but there is something good in every day — just find it and stay motivated.🌈"
+
+
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_goodbye:
+    - text: "Take care, {user_name}😊.Let me know if you need anything else."
+
+  utter_email_ceo:
+    - text: " The CEO email at kiit.hv@gmail.com for further assistance."
+
+  utter_email_registrar:
+    - text: "The Registrar email at kiit.nvk@gmail.com for further assistance."
+
+  utter_email_director:
+    - text: "The Director email at kiit.ssa@gmail.com for further assistance."
+
+  utter_roommate_solution:
+    - text: "You can understand your roommate.If the problem is out of control then speak to your parents or trust worthy people.Then,you should ask to your Warden."
+
+  utter_positive_feedback:
+    - text: "Thank you for your positive feedback! 😊 Glad I could help."
+
+  utter_negative_feedback:
+    - text: "Sorry to hear that. Your feedback is important, and I'll try to improve. Could you please tell me more?"
+
+  utter_sorry:
+    - text: "No worries at all!"
+
+  utter_avoid_romantic:
+    - text: "I'm here to help with hostel-related issues only 😊. Let's keep our conversation respectful and focused. How can I assist you today?"
+
+  utter_out_of_scope:
+    - text: "I didn't understand.Please rephrase it."
+
+  utter_thank_you:
+    - text: "Pleasure to help! any more issue {user_name}?(yes/no)"
+
+
+  utter_good_day:
+    - text: "Thankyou,have a good day."
+
+  utter_default:
+    - text: "Sorry, I didn’t understand that. Can you please rephrase?"
+
+  utter_greet:
+    - text: "Hello 👋! I’m your Hostel Assistant Chatbot.May I know your hostel and room number (e.g., QC-03, Room 1B15)?"
+
+
+  utter_ask_issue:
+    - text: "I’m here to help you. Please tell me a bit about the issue you’re facing (e.g.,water,\n electricity,\n maintenance,\n cleanliness,\n food,\n noise,\n security,\n wifi,\n temperature,\n
+               hygiene,\n roommate,\n harassment, and\n what happened with your health ?)"
+
+  utter_harassment:
+    - text: "I'm really sorry you're going through this. If you're feeling harassed or unsafe, please inform your hostel warden or counselor immediately.
+        If the situation continues or is serious, you can register in complaint form 📄and  also email the **CEO**, **Registrar**, or **Director** of the institution directly for help.
+              
+              If you want the complaint form or the email of the concerned person, just ask me."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
+
+
+
+

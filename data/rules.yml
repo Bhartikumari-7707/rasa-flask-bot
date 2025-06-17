@@ -1,0 +1,80 @@
+version: "3.1"
+
+rules:
+- rule: Send complaint form link
+  steps:
+  - intent: want_complaint_form
+  - action: action_send_form_link
+
+- rule: User describes issue
+  steps:
+    - intent: describe_issue
+    - action: action_acknowledge_issue
+
+- rule: User basic flow to  confirms issue
+  steps:
+    - intent: confirm_issue
+    - action: utter_ask_issue
+
+- rule: describe issue
+  steps:
+    - intent: describe_issue
+    - action: action_acknowledge_issue
+
+
+- rule: User denies issue
+  steps:
+    - intent: deny
+    - action: utter_good_day
+
+- rule: out of scope
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+- rule: Handle romantic talk
+  steps:
+    - intent: romantic_talk
+    - action: utter_avoid_romantic
+
+
+- rule: harassment
+  steps:
+    - intent: harassment
+    - action: utter_harassment
+
+- rule: Handle location input
+  steps:
+    - intent: provide_location
+    - action: action_extract_location
+
+
+- rule: thankyou
+  steps:
+    - intent: thank_you
+    - action: utter_thank_you
+
+- rule: Extract user name
+  steps:
+    - intent: provide_name
+    - action: action_extract_name
+
+- rule: Greet user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Handle fallback
+  steps:
+      - intent: nlu_fallback
+      - action: utter_default
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
