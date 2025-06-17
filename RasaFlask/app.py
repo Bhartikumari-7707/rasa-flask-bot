@@ -4,7 +4,7 @@ import requests
 # RASA_API_URL =  "http://127.0.0.1:5005/webhooks/rest/webhook"
 import os
 
-RASA_API_URL = os.getenv("RASA_API_URL", "http://127.0.0.1:5005/webhooks/rest/webhook")
+RASA_API_URL = os.getenv("RASA_API_URL", " https://e323-223-228-146-154.ngrok-free.app/webhooks/rest/webhook")
 
 app = Flask(__name__)
 
